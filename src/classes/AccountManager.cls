@@ -1,10 +1,11 @@
-// Class
+/**
+ * @description AccountManager
+ */
 @RestResource(UrlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
 
     /**
-    * Method to fetch account
-    *
+    * @description Method to fetch account
     * @return Account
     */
     @HttpGet
