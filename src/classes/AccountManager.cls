@@ -1,7 +1,12 @@
 // This is a commit commit from UCS
-@RestResource(urlMapping='/Accounts/*/contacts')
+@RestResource(UrlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
 
+    /**
+    * Method to fetch account
+    *
+    * @return Account
+    */
     @HttpGet
     global static Account getAccount() {
         Vehicle__c vehicle = new Vehicle__c();
@@ -13,9 +18,5 @@ global with sharing class AccountManager {
                 WHERE Id = :accId
         ];
         return acc;
-    }
-
-    public static void testThisMethod() {
-        System.debug('');
     }
 }
