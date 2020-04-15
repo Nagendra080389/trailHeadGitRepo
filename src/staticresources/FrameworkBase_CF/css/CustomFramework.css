@@ -1,0 +1,1278 @@
+/**************************************************************************************
+* Create by:   Deloitte Consulting LLP.
+* CreateDate:  03/10/2016
+* Description: Custom Cascade Style sheet for HF.
+*
+*  Modification Log:
+*  ------------------------------------------------------------------------------
+*  * Version       Date         Author                Description
+*  * ----------------------------------------------------------------------------
+*  * 1.0           03/10/2016     Alejandro Cajica    CSS for custom styling.
+**************************************************************************************/
+
+/* Framework styling - Salesforce lightning*/
+
+/* Font family - Bold*/
+@font-face {
+    font-family: "Salesforce Sans";
+    src: url(../fonts/SalesforceSans-Bold.woff2)
+    font-weight: bold;
+}
+
+/* Font family - Italic*/
+@font-face {
+    font-family: "Salesforce Sans";
+    src: url(../fonts/SalesforceSans-Italic.woff2)
+    font-weight: italic;
+}
+
+/* Font family - Light*/
+@font-face {
+    font-family: "Salesforce Sans";
+    src: url(../fonts/SalesforceSans-Light.woff2)
+    font-weight: lighter;
+}
+
+/* Font family - Regular*/
+@font-face {
+    font-family: "Salesforce Sans";
+    src: url(../fonts/SalesforceSans-Regular.woff2)
+}
+
+/* Font family - Apply to all elements*/
+* {
+    font: 100%/1.5 "Salesforce Sans", Arial, sans-serif;
+    color: #16325c;
+}
+
+/* General styling*/
+body {
+    background-color: #FDFDFD;
+}
+
+/* Headers - Uppercase*/
+h1, h2, h3, h4, h5, h6, h7, h8, th, th > div, label {
+    color: #16325c !important;
+}
+
+/* Collapsible panel - Header*/
+.collapsible-group > .panel-default > .panel-heading {
+    cursor: pointer;
+    text-align: center;
+    background-image: none;
+    background-color: #F4F6F9;
+}
+
+/* Collapsible panel - opaque background.*/
+.opaque-background > .panel-default > .panel-collapse > .panel-body {
+    background-color: #FBFCFD;
+}
+
+/* General opaque background.*/
+.general-opaque-background {
+    background-color: #FBFCFD;
+}
+
+/* Card format - Header*/
+.card > .panel-default > .panel-heading {
+    background-image: none;
+    background-color: #FDFDFD;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Card format - Header - Opaque color*/
+.cardOpaqueHeader > .panel-default > .panel-heading {
+    background-color: #F4F6F9;
+}
+
+/* Data Tables - Odd*/
+.odd {
+    border-color: #D8DDE6;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-top-style: solid;
+}
+
+/* Data Tables - tds*/
+.dataTable td, .dataTable th {
+    padding: 8px;
+}
+
+/* Data Tables - On Hover tds*/
+.dataTable tbody tr:hover > td {
+    box-shadow: #D8DDE6 0 -1px 0 inset;
+    background-color: #F4F6F9;
+}
+
+/* Data Tables - On Hover tds and ths*/
+.dataTable thead th:hover {
+    background-color: #F4F6F9;
+}
+
+/* Font for icons*/
+.indicator {
+    font-family: Glyphicons Halflings !important;
+}
+
+/* Color for Icons - Electric Blue*/
+.icon-electric-blue {
+    color: #0070D2;
+}
+
+/* Color for Icons - Red*/
+.icon-electric-red {
+    color: red;
+}
+
+/* Color for Icons - Red*/
+.icon-electric-green {
+    color: green;
+}
+
+/* Color for Icons - SFDC*/
+.icon-sfdc {
+    color: #54698D;
+}
+
+/* Separator for icons on headers*/
+.header-icon {
+    margin-right: 5px;
+}
+
+/* Input fields*/
+.form-control {
+    background-color: white;
+    color: #16325c;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    width: 100%;
+    -webkit-transition: border 0.1s linear, background-color 0.1s linear;
+    transition: border 0.1s linear, background-color 0.1s linear;
+    display: inline-block;
+    padding: 0 1rem 0 0.75rem;
+    line-height: 2.125rem;
+    min-height: calc(2.125rem + 2px);
+}
+
+/* Labels for input fields*/
+label {
+    margin-bottom: 10px;
+    font-size: 11px;
+}
+
+/* Removing exceding padding*/
+.alert {
+    padding: 10px;
+}
+
+/* Updating background color for error messages*/
+.alert-danger {
+    background-color: #c23934;
+}
+
+/* Updating background color for warning messages*/
+.alert-warning {
+    background-color: #444;
+}
+
+/* Updating background color for info messages*/
+.alert-info {
+    background-color: #54698d;
+}
+
+/* Updating background color for success messages*/
+.alert-success {
+    background-color: #04844b;
+}
+
+/* Updating font color*/
+.alert-link {
+    color: white !important;
+    cursor: default !important;
+    text-decoration: none !important;
+    display: block;
+    font-size: 11px !important;
+}
+
+/* Styling for Checkboxes and Radio buttons*/
+input[type='checkbox'], input[type='radio'] {
+    display: block;
+}
+
+/* Text align (right) for Panel footer*/
+.panel-footer {
+    text-align: right;
+}
+
+/* Styling for button on header*/
+.panelHeader-button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-right: 10px;
+    margin-top: -4px;
+}
+
+/* Styling for spinners*/
+.spinner {
+    width: 56px;
+    height: 56px;
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+/* Validation error style - Input Text Field*/
+.invalidInputTextField {
+    border-color: #c23934;
+    box-shadow: #c23934 0 0 0 1px inset;
+    background-clip: padding-box;
+}
+
+/* Validation error style - Text Area Field*/
+.invalidTextAreaField {
+    border-color: #c23934;
+    box-shadow: #c23934 0 0 0 1px inset;
+    background-clip: padding-box;
+}
+
+/* Validation error style - Select Field*/
+.invalidSelectField {
+    border-color: #c23934;
+    box-shadow: #c23934 0 0 0 1px inset;
+    background-clip: padding-box;
+}
+
+/* Validation error style - Inline message*/
+.inlineErrorMessage {
+    color: #c23934;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Validation success style - Inline message*/
+.inlineSuccessMessage {
+    color: #4BCA81;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Validation info style - Inline message*/
+.inlineInfoMessage {
+    color: #54698D;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Validation warning style - Inline message*/
+.inlineWarningMessage {
+    color: #FFB75D;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Style for container of close icon on modals*/
+.modal-header .close {
+    margin-bottom: -30px;
+}
+
+/* Style for close icon on modals*/
+.modal-header .close > span {
+    font-size: 40px;
+    top: -15px;
+    position: relative;
+}
+
+/* Style for tabs - All tabs*/
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border-bottom-color: #0070d2;
+    border-width: 0px 0px 2px 0px;
+}
+
+/* Style for tabs - Removing radius for vertical left and right tabs*/
+.tabs-left > li > a, .tabs-right > li > a {
+    border-radius: 0px 0px 0px 0px;
+}
+
+/* Style for tabs - Applying border on hover - vertical*/
+.nav-tabs > li > a:hover {
+    border-bottom-color: #0070d2;
+    border-width: 0px 0px 2px 0px;
+}
+
+/* Style for tabs - Applying border on hover - left*/
+.tabs-left > li > a:hover {
+    border-bottom-color: #0070d2;
+    border-width: 0px 1px 2px 0px;
+}
+
+/* Style for tabs - Applying border on hover - right*/
+.tabs-right > li > a:hover {
+    border-bottom-color: #0070d2;
+    border-width: 0px 0px 2px 1px;
+}
+
+/* Style for tabs - Removing background on hover*/
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: white;
+}
+
+/* Autocomplete general style*/
+.ui-autocomplete .ui-menu-item {
+    background-color: white;
+    color: #16325c;
+    border: none !important;
+    width: 100%;
+    -webkit-transition: border 0.1s linear, background-color 0.1s linear;
+    transition: border 0.1s linear, background-color 0.1s linear;
+    padding: 0px !important;
+    line-height: 2.125rem;
+    min-height: calc(2.125rem + 2px);
+    font-weight: normal !important;
+}
+
+/* Autocomplete onFocus style*/
+.ui-autocomplete .ui-state-focus {
+    background: none !important;
+    background-color: #0070D2 !important;
+    border-radius: 0.25rem !important;
+    font-weight: light !important;
+    color: white !important;
+
+}
+
+.ui-menu > .ui-menu-item > a {
+    display: block !important;
+    font-size: 12.5px !important;
+    width: 100% !important;
+}
+
+.ui-widget-content a {
+    color: #006cb5 !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.ui-widget-content a:hover {
+    color: #006cb5 !important;
+}
+
+.ui-menu-item > .ui-state-active {
+    background: none !important;
+    background-color: #e3f3ff !important;
+    border: 0px !important;
+    font-size: 12.5px !important;
+    color: #006cb5 !important;
+}
+
+/* Modals total window height control*/
+.modalHeightControl {
+    height: 100%;
+}
+
+/* Modal body overflow control- 120px. Use it when header + footer*/
+.modalBodyHeight {
+    max-height: calc(100% - 120px);
+    overflow-y: auto;
+}
+
+/* Modal body overflow control- 60px.   Use it when header OR footer*/
+.modalBodyHeightHdOrFt {
+    max-height: calc(100% - 120px);
+    overflow-y: auto;
+}
+
+/* Modal body overflow control- 120px   Use it when NO header  NO footer*/
+.modalBodyHeightWithoutHdFt {
+    max-height: calc(100%);
+    overflow-y: auto;
+}
+
+/* Inline alignment for Radio selectors*/
+.inlineRadioLabelAlignment {
+    display: inline !important;
+}
+
+/* USEFUL CLASSES*/
+
+/* Class that can be used to set a margin for internal panels*/
+.internalPanelMargin {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+/* Class that can be used to set a margin for a panel which is the parent container*/
+.containerPanel {
+    margin-top: 20px;
+}
+
+/* Class to be applied to Div elements to divide content*/
+.customDivider {
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: solid;
+}
+
+/* Class to be applied to Div elements to divide content with dots*/
+.customDivider-dots {
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: dotted;
+}
+
+/* Class to be applied to Div elements to divide content with dashes*/
+.customDivider-dashes {
+    margin-left: 0.5px;
+    margin-right: 0.5px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-top-color: #CCC;
+    border-top-width: 1px;
+    border-top-style: dashed;
+}
+
+/* Left and Right margin*/
+.marginLeftRight {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+/* Extra large modal*/
+.modal-xl {
+    width: 90%;
+}
+
+/* Mobile screens*/
+@media all and (max-width: 991px) {
+
+    /* Class to be applied to Div elements to divide content vertically (left)*/
+    .customDivider-vertical-left {
+        margin-left: 0.5px;
+        margin-right: 0.5px;
+        margin-top: 20px;
+        border-top-color: #CCC;
+        border-top-width: 1px;
+        border-top-style: solid;
+    }
+
+    /* Class to be applied to Div elements to divide content vertically (right)*/
+    .customDivider-vertical-right {
+        margin-left: 0.5px;
+        margin-right: 0.5px;
+        margin-top: 20px;
+        border-top-color: #CCC;
+        border-top-width: 1px;
+        border-top-style: solid;
+    }
+}
+
+/* Desktop screens*/
+@media (min-width: 1025px) {
+
+    /* Class to be applied to Div elements to divide content vertically (left)*/
+    .customDivider-vertical-left {
+        margin-top: 0.5px;
+        margin-bottom: 0.5px;
+        border-left-color: #CCC;
+        border-left-width: 1px;
+        border-left-style: solid;
+    }
+
+    /* Class to be applied to Div elements to divide content vertically (right)*/
+    .customDivider-vertical-right {
+        margin-top: 0.5px;
+        margin-bottom: 0.5px;
+        border-right-color: #CCC;
+        border-right-width: 1px;
+        border-right-style: solid;
+    }
+}
+
+/* Donut Chart Styling to be applied for inline instances of Donut Charts*/
+.donutContainer {
+    width: 130px;
+    height: 130px;
+    display: inline;
+    float: left;
+    margin: 10px;
+}
+
+/* Class to be applied to div within donutCircle to hold the actual chart*/
+.donutChart {
+    top: 30px;
+    position: relative;
+    font-size: 30px;
+}
+
+/* Class to be applied to div within donutBorder to hold donutChart*/
+.donutCircle {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #FFFFFF;
+}
+
+/* Class to be applied to div within donutContainer to define dynamic border*/
+.donutBorder {
+    position: relative;
+    text-align: center;
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    background-color: #A3D900;
+    background-image: linear-gradient(91deg, transparent 50%, #EEEEEE 50%), linear-gradient(90deg, #EEEEEE 50%, transparent 50%);
+}
+
+/*Class to dim background when used with focusArea functionality*/
+.pageMask {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Autocomplete spinner*/
+.ui-autocomplete-loading {
+    background: white url(../images/slds_spinner_brand.gif) right center no-repeat;
+    background-size: 20px 20px;
+}
+
+/* Multiselect picklist - selected value*/
+.multiselect-container > li.active > a > label {
+    color: white !important;
+    background-color: #0070D2 !important;
+}
+
+/*--Quick Links Styling--*/
+.quickLinksContainer {
+    position: fixed;
+    top: 85px;
+    left: 0px;
+    z-index: 2;
+}
+
+.quickLinks {
+    width: 65px;
+    background-color: #00396B;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.quickLinksDetails {
+    width: 315px;
+    background-color: #00396B;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    left: -315px;
+}
+
+.quickLinks ul {
+    height: 100%;
+    padding-bottom: 30px;
+    margin-left: -40px;
+}
+
+.quickLinks ul li {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+}
+
+.quickLinks ul li:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.quickLinks ul li:focus {
+    background-color: white;
+    color: #54698D;
+}
+
+.quickLinks ul li a {
+    color: white;
+    text-decoration: none;
+    line-height: 5.0rem;
+    vertical-align: middle;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.quickLinksDetails .head {
+    padding-right: 20px;
+}
+
+.quickLinksDetails ul li {
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.quickLinksDetails ul li a {
+    color: white;
+    padding-bottom: 20px;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.quickLinksPosition {
+    position: fixed;
+    left: -4px;
+    bottom: 5%;
+    z-index: 100;
+}
+
+.quickLinkSeperator {
+    border: 1px solid #CFD7E6;
+    width: 90%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+/*Tags*/
+.tag_default_new {
+    padding: 0px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    color: #54698D;
+    height: 20px;
+    width: auto;
+    background-color: #cddff9;
+}
+
+.tag_default {
+    padding: 0px 10px;
+    display: inline-block;
+    border-radius: 4px;
+    color: white;
+    height: 20px;
+    width: auto;
+}
+
+.tag_font {
+    color: white;
+    font-weight: bold;
+}
+
+.approved, .posted {
+    background-color: #4BC076;
+}
+
+.denied, .Escalated {
+    background-color: #DB554B;
+}
+
+.pending {
+    background-color: #F88962;
+}
+
+.InProgress, .onHold {
+    background-color: #0DC2D9;
+}
+
+.NotStarted {
+    background-color: #F88962;
+}
+
+.closed {
+    background-color: #CFD7E6;
+}
+
+.cancelled {
+    background-color: #54698D;
+}
+
+.new {
+    background-color: #FFF;
+}
+
+.draft {
+    background-color: #BAAC93;
+}
+
+.Waitingonsomeoneelse {
+    background-color: #0DC2D9;
+}
+
+.days_tag {
+    background-color: #EEF1F6;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+/* Input File Buttons*/
+.hidden-xs {
+    color: white !important;
+}
+
+/*Description input file buttons*/
+.btn-file > i {
+    color: white !important;
+}
+
+.btn-primary > i {
+    color: white !important;
+}
+
+/*Progress bar format from input file component*/
+.progress {
+    display: none;
+}
+
+/*Placeholder format from input file component*/
+file-caption-name {
+    font-weight: italic;
+}
+
+/*Buttons in Lightning SFDC style*/
+/*Button for Default type. (Grey Styling)*/
+.btn-default {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #fff !important;
+    border: 1px solid #d8dde6 !important;
+    color: #005fb2;
+    background-image: -webkit-linear-gradient(top, #fff 0, #fff 100%);
+    background-image: -o-linear-gradient(top, #fff 0, #fff 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff, to(#fff)));
+    background-image: linear-gradient(to bottom, #fff 0, #fff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr=#fff, GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+}
+
+/*Button for Default type. (Grey Styling for hover state)*/
+.btn-default:hover {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #eef1f6 !important;
+    border: 1px solid #d8dde6 !important;
+    color: #00396b !important;
+    background-image: -webkit-linear-gradient(top, #eef1f6 0, #eef1f6 100%);
+    background-image: -o-linear-gradient(top, #eef1f6 0, #eef1f6 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #eef1f6, to(#eef1f6)));
+    background-image: linear-gradient(to bottom, #eef1f6 0, #eef1f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eef1f6', endColorstr='eef1f6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #0070d2;
+}
+
+/*Button for Primary type. (Bright blue Styling)*/
+.btn-primary {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #0070d2 !important;
+    border: 1px solid #0070d2 !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #0070d2 0, #0070d2 100%);
+    background-image: -o-linear-gradient(top, #0070d2 0, #0070d2 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #0070d2, to(#0070d2)));
+    background-image: linear-gradient(to bottom, #0070d2 0, #0070d2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0070d2', endColorstr='#0070d2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #0070d2;
+}
+
+/*Button for Primary type. (Bright blue Styling for hover state)*/
+.btn-primary:hover {
+    background-color: #005fb2 !important;
+    border: 1px solid #005fb2 !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #005fb2 0, #005fb2 100%);
+    background-image: -o-linear-gradient(top, #005fb2 0, #005fb2 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #005fb2, to(#005fb2)));
+    background-image: linear-gradient(to bottom, #005fb2 0, #005fb2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#16325c', endColorstr='#16325c', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #005fb2;
+}
+
+/*Button for Success type. (Green Styling)*/
+.btn-success {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #04844b !important;
+    border: 1px solid #04844b !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #04844b 0, #04844b 100%);
+    background-image: -o-linear-gradient(top, #04844b 0, #04844b 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #04844b, to(#04844b)));
+    background-image: linear-gradient(to bottom, #04844b 0, #04844b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#04844b', endColorstr='#04844b', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #04844b;
+}
+
+/*Button for Success type. (Green Styling for hover state)*/
+.btn-success:hover {
+    background-color: #046428 !important;
+    border: 1px solid #046428 !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #046428 0, #046428 100%);
+    background-image: -o-linear-gradient(top, #046428 0, #046428 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #046428, to(#046428)));
+    background-image: linear-gradient(to bottom, #046428 0, #046428 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#046428', endColorstr='#046428', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #046428;
+}
+
+/*Button for Warning type. (Yellow Styling)*/
+.btn-warning {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffb75d !important;
+    border: 1px solid #ffb75d !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #ffb75d 0, #ffb75d 100%);
+    background-image: -o-linear-gradient(top, #ffb75d 0, #ffb75d 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffb75d, to(#ffb75d)));
+    background-image: linear-gradient(to bottom, #ffb75d 0, #ffb75d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb75d', endColorstr='#ffb75d', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #ffb75d;
+}
+
+/*Button for Warning type. (Yellow Styling for hover state)*/
+.btn-warning:hover {
+    background-color: #FF984E !important;
+    border: 1px solid #FF984E !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #FF984E 0, #FF984E 100%);
+    background-image: -o-linear-gradient(top, #FF984E 0, #FF984E 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FF984E, to(#FF984E)));
+    background-image: linear-gradient(to bottom, #FF984E 0, #FF984E 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF984E', endColorstr='#FF984E', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #FF984E;
+}
+
+/*Button for Danger type. (Red Styling)*/
+.btn-danger {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #c23934 !important;
+    border: 1px solid #c23934 !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #c23934 0, #c23934 100%);
+    background-image: -o-linear-gradient(top, #c23934 0, #c23934 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c23934, to(#c23934)));
+    background-image: linear-gradient(to bottom, #c23934 0, #c23934 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c23934', endColorstr='#c23934', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #c23934;
+}
+
+/*Button for Danger type. (Red Styling for hover state)*/
+.btn-danger:hover {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #a61a14 !important;
+    border: 1px solid #a61a14 !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #a61a14 0, #a61a14 100%);
+    background-image: -o-linear-gradient(top, #a61a14 0, #a61a14 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #a61a14, to(#a61a14)));
+    background-image: linear-gradient(to bottom, #a61a14 0, #a61a14 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a61a14', endColorstr='#a61a14', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #a61a14;
+}
+
+/*Button for Info type. (Blue Styling)*/
+.btn-info {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #54698d !important;
+    border: 1px solid #54698d !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #54698d 0, #54698d 100%);
+    background-image: -o-linear-gradient(top, #54698d 0, #54698d 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #54698d, to(#54698d)));
+    background-image: linear-gradient(to bottom, #54698d 0, #54698d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='54698d', endColorstr='#54698d', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #54698d;
+}
+
+/*Button for Info type. (Blue Styling for hover state)*/
+.btn-info:hover {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #546478 !important;
+    border: 1px solid #546478 !important;
+    color: #white !important;
+    background-image: -webkit-linear-gradient(top, #546478 0, #546478 100%);
+    background-image: -o-linear-gradient(top, #546478 0, #546478 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #546478, to(#546478)));
+    background-image: linear-gradient(to bottom, #546478 0, #546478 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='546478', endColorstr='#546478', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #546478;
+}
+
+/*General Style*/
+.btn {
+    font-size: 12px !important;
+}
+
+a {
+    font-size: 12px !important;
+}
+
+td {
+    font-size: 12px !important;
+}
+
+th {
+    font-size: 12px !important;
+}
+
+/*Badges in Lightning SFDC style*/
+/*Default grey type styling*/
+.label-default {
+    background: #E0E5EE;
+    color: #00396b;
+    border-radius: 15rem;
+    padding: .25rem .5rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .0625em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/*Info blue type styling*/
+.label-info {
+    background: #54698d;
+    color: #FFFFFF;
+    border-radius: 15rem;
+    padding: .25rem .5rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .0625em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/*Primary bright blue type styling*/
+.label-primary {
+    background: #005fb2;
+    color: #FFFFFF;
+    border-radius: 15rem;
+    padding: .25rem .5rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .0625em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/*Success green type styling*/
+.label-success {
+    background: #4bca81;
+    color: #FFFFFF;
+    border-radius: 15rem;
+    padding: .25rem .5rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .0625em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/*Warning yellow type styling*/
+.label-warning {
+    background: #ffb75d;
+    color: #FFFFFF;
+    border-radius: 15rem;
+    padding: .25rem .5rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .0625em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/*Danger red type styling*/
+.label-danger {
+    background: #c23934;
+    color: #FFFFFF;
+    border-radius: 15rem;
+    padding: .25rem .5rem;
+    border-radius: 15rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .0625em;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+/*Day styling in Calendar component*/
+.day {
+    border-radius: 50% !important;
+    padding: 8px;
+}
+
+/* Modal header format*/
+.modal-header {
+    border-bottom: 2px solid #d8dde6;
+}
+
+/* Modal footer format*/
+.modal-footer {
+    text-align: right;
+    background-color: #f4f6f9;
+}
+
+/*Wrap for Multiselect containers*/
+.multiselect-selected-text {
+    white-space: normal;
+}
+
+.multiselect-container > li > a {
+    white-space: normal;
+}
+
+/*Style for custom spinner image*/
+.spinnerCard {
+    width: 56px;
+    height: 56px;
+    z-index: 9999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/*Style for custom spinner backdrop*/
+.spinnerBackdrop {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: #000;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+    opacity: 0.5;
+}
+
+/*Style to initialize position of custom spinner*/
+.spinnerPosition {
+    position: relative;
+}
+
+/*Style to center verticaly span within a div*/
+.divContainerCenter {
+    display: block;
+    text-align: center;
+}
+
+.centerSpan {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+input[type="text"]:disabled, input[type="search"]:disabled, textarea[disabled], select[disabled] {
+    background: #EAEAEA !important;
+    background-color: #EAEAEA !important;
+    color: #848484 !important;
+    height: 30px
+    font-size: 11px;
+}
+
+.checkbox input[type="checkbox"]:disabled, .radio input[type="radio"]:disabled, .checkbox input[type="checkbox"], .radio input[type="radio"] {
+    background: #EAEAEA !important;
+    background-color: #EAEAEA !important;
+    color: #848484 !important;
+    height: 10px
+    font-size: 11px;
+}
+
+input[type="text"], input[type="search"], textarea, select {
+    background-color: white;
+    color: #16325c;
+    border: 1px solid #d8dde6;
+    border-radius: 0.25rem;
+    width: 100%;
+    height: 30px !important;
+    font-size: 11px !important;
+}
+
+/*Placeholder*/
+::-webkit-input-placeholder {
+    font-size: 11px !important;
+}
+
+::-moz-placeholder {
+    font-size: 11px !important;
+}
+
+:-ms-input-placeholder {
+    font-size: 11px !important;
+}
+
+input:-moz-placeholder {
+    font-size: 11px !important;
+}
+
+/* Toast - The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    color: #FFF; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.snackbar-default {
+    background-color: #E0E5EE;
+    color: #000;
+}
+
+/*Info blue type styling*/
+.snackbar-info {
+    background-color: #54698d;
+}
+
+/*Primary bright blue type styling*/
+.snackbar-primary {
+    background-color: #005fb2;
+}
+
+/*Success green type styling*/
+.snackbar-success {
+    background-color: #4bca81;
+}
+
+/*Warning yellow type styling*/
+.snackbar-warning {
+    background-color: #ffb75d;
+}
+
+/*Danger red type styling*/
+.snackbar-danger {
+    background-color: #c23934;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}

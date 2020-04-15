@@ -1,0 +1,34 @@
+<!--
+/**
+ * Component from CaseErrorLightningComponent_ACE.
+ * <p /><p />
+ * @author Nagendra Kumar Singh
+ */
+ -->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+
+    <!-- APIs -->
+    <ltng:require styles="{!$Resource.FrameworkBase_CF + '/css/font-awesome.min.css'}"/>
+
+    <!-- Body -->
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <div id="idCaseNumber"></div>
+                    <div class="box slds-float_left"></div>
+                </div>
+                <div class="slds-media__body heading">
+                    <label class="labelClass" id="attachmentsLabel">'Remove'</label>
+                </div>
+                <div class="slds-no-flex" onclick="{!c.handleCancel}">
+                    <lightning:icon iconName="utility:close" size="small"/>
+                </div>
+            </header>
+        </div>
+        <div class="slds-p-around_medium errorClass">
+            <i class="fa fa-ban fa-lg"></i>
+            'The system is not able to delete this attachment at this time. Please try again later.'
+        </div>
+    </article>
+</aura:component>

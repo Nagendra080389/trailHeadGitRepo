@@ -1,0 +1,10 @@
+<!--
+ - Created by nagesingh on 11/23/2019.
+ -->
+
+<apex:component access="global">
+    <apex:includeScript value="{!URLFOR($Resource.FrameworkBase_CF, 'js/jquery-ui.min.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FrameworkBase_CF, 'css/jquery-ui.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FrameworkBase_CF, 'css/jquery-ui.structure.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.FrameworkBase_CF, 'css/jquery-ui.theme.min.css')}"/>
+</apex:component>

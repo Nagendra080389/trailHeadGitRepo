@@ -1,0 +1,18 @@
+<!--
+/**
+ * This component communicates with the Visualforce page, to allow it to know where the component is currently located (Utility Bar or Subtab, Case or Interaction Log).
+ * <p /><p />
+ * @author Raymundo Rodriguez
+ */
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                access="global">
+
+    <!-- APIs and Libraries -->
+    <lightning:workspaceAPI aura:id="workspace"/>
+    <lightning:messageChannel type="GenericMessage__c" aura:id="sayWhatChannel" scope="APPLICATION"/>
+
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+</aura:component>

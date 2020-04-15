@@ -1,0 +1,37 @@
+<apex:page showHeader="false" standardController="Contact">
+
+    <script>
+
+        var userId = '{!$User.Id}'.substr(0, 15);
+        var source123 = new EventSource('https://platformcustom.herokuapp.com/emit-custom-pe?eventName=/event/GenericPlatformEvent__e&userId=' + userId);
+
+        if (source123 !== null) {
+            source123.addEventListener('message', function (e) {
+                console.log('From heroku -> ' + e.data);
+            }, false);
+
+            source123.addEventListener('open', function (e) {
+                // Connection was opened.
+            }, false);
+
+            source123.addEventListener('error', function (e) {
+                if (e.readyState === EventSource.CLOSED) {
+                    // Connection was closed.
+                }
+            }, false);
+        }
+
+    </script>
+    <apex:form>
+        <apex:pageBlock>
+            <apex:pageblockSection>
+
+                <apex:inputField value="{!Contact.FirstName}"/>
+                <apex:inputField value="{!Contact.LastName}"/>
+                <apex:inputField value="{!Contact.Email}"/>
+
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageblockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

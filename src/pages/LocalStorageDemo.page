@@ -1,0 +1,28 @@
+<!--
+/**
+ * Description of the LocalStorageDemo.
+ * <p /><p />
+ * @author Nagendra Kumar Singh
+ */-->
+<apex:page controller="LocalStorageController">
+    <apex:includeScript value="{!URLFOR($Resource.jquery_js, 'jquery_js.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.secure_js, 'secure_js.js')}"/>
+
+    <script>
+
+        var ls = new SecureLS({
+            isCompression: false,
+            encryptionSecret: '{!strSecret}'
+        });
+
+        ls.set('name', 'AARAV');
+        $(document).ready(function () {
+            $('#cookiesValue').append(ls.get('name'));
+        });
+
+    </script>
+
+    <div id="cookiesValue">
+
+    </div>
+</apex:page>

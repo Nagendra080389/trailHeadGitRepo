@@ -1,0 +1,41 @@
+<!--
+/**
+ * Description of the GrapeJS.
+ * <p /><p />
+ * @author Nagendra Kumar Singh
+ */-->
+<aura:component>
+
+    <div id="iatk" class="row">
+        <div id="header" title="Header" class="cell">
+            <div id="i1egix">Sasdasdsdv,f m
+            </div>
+            <div id="im0k6q">
+                <span>Insert here your custom code</span>
+            </div>
+        </div>
+        <div id="imz7" class="cell">
+            <div data-tooltip="Tooltip" class="tooltip-component tooltip-component--empty" id="im5z5g">
+            </div>
+        </div>
+    </div>
+    <div data-tabs="1" id="i0d7wg">
+        <nav data-tab-container="1" class="tab-container">
+            <a href="#tab1" data-tab="1" class="tab">Tab 1</a>
+            <a href="#tab2" data-tab="1" class="tab">Tab 2</a>
+            <a href="#tab3" data-tab="1" class="tab">Tab 3</a>
+        </nav>
+        <div id="tab1" data-tab-content="1" class="tab-content">
+            <div id="iw4bvk">Tab 1 Content
+            </div>
+        </div>
+        <div id="tab2" data-tab-content="1" class="tab-content">
+            <div>Tab 2 Content
+            </div>
+        </div>
+        <div id="tab3" data-tab-content="1" class="tab-content">
+            <div>Tab 3 Content
+            </div>
+        </div>
+    </div>
+</aura:component>

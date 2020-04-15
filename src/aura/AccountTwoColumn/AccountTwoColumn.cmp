@@ -1,0 +1,62 @@
+<!--
+ - Created by nagesingh on 3/23/2020.
+ -->
+
+<aura:component description="AccountTwoColumn" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                access="global">
+    <aura:attribute name="mapAuraComponents" type="List"/>
+    <aura:attribute name="size" type="Integer" default="6"/>
+    <aura:attribute name="smallDeviceSize" type="Integer" default="12"/>
+    <aura:attribute name="mediumDeviceSize" type="Integer" default="6"/>
+    <aura:attribute name="boolIsTabSet" type="Boolean" default="false"/>
+    <aura:attribute name="NumberOfTabs" type="Integer" default="2"/>
+
+    <lightning:layout multipleRows="true">
+        <aura:iteration items="{!v.mapAuraComponents}" var="item" indexVar="mapKey">
+            <aura:if isTrue="{!equals(item.key, 'TabSet')}">
+                <lightning:layoutItem padding="around-small" size="{!item.size}" smallDeviceSize="{!item.size}" mediumDeviceSize="{!item.size}">
+                    <lightning:tabset variant="scoped">
+                        <aura:iteration items="{!item.value}" var="innerItem" indexVar="innerIndex">
+                            <lightning:tab label="{! 'Item ' + innerIndex}">
+                                {!innerItem}
+                            </lightning:tab>
+                        </aura:iteration>
+                    </lightning:tabset>
+                </lightning:layoutItem>
+            </aura:if>
+            <aura:if isTrue="{!equals(item.key, 'MultiTabSet')}">
+                <lightning:layoutItem padding="around-small" size="{!item.size}" smallDeviceSize="{!item.size}" mediumDeviceSize="{!item.size}">
+                    <lightning:tabset variant="scoped">
+                        <aura:iteration items="{!item.value}" var="innerValueItem" indexVar="innerKey">
+                            <lightning:tab label="{!innerValueItem.key}">
+                                <lightning:tabset variant="scoped">
+                                    <aura:iteration items="{!innerValueItem.value}" var="containerAura" indexVar="auraVar">
+                                        <lightning:tab label="{! 'Item ' + auraVar}">
+                                            {!containerAura}
+                                        </lightning:tab>
+                                    </aura:iteration>
+                                </lightning:tabset>
+                            </lightning:tab>
+                        </aura:iteration>
+                    </lightning:tabset>
+                </lightning:layoutItem>
+            </aura:if>
+
+            <aura:if isTrue="{!equals(item.key, 'TwoColumn')}">
+                <aura:iteration items="{!item.value}" var="containerAura" indexVar="auraVar">
+                    <lightning:layoutItem padding="around-small" size="{!item.size}">
+                        {!containerAura}
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </aura:if>
+            <aura:if isTrue="{!equals(item.key, 'OneColumn')}">
+                <aura:iteration items="{!item.value}" var="containerAura" indexVar="auraVar">
+                    <lightning:layoutItem padding="around-small" size="{!item.size}">
+                        {!containerAura}
+                    </lightning:layoutItem>
+                </aura:iteration>
+            </aura:if>
+
+        </aura:iteration>
+    </lightning:layout>
+</aura:component>

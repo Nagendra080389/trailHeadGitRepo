@@ -1,0 +1,35 @@
+/**
+ * Description of the CaseErrorLightningComponent_ACE.css.
+ * <p /><p />
+ * @author Nagendra Kumar Singh
+ */
+
+.THIS .box {
+    background-color: rgba(58, 62, 58, 0.49);
+    border: 1px;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+}
+
+.THIS label#attachmentsLabel {
+    font-size: 15px;
+    font-weight: 600;
+    color: #505050;
+}
+
+.THIS .errorClass {
+    border-radius: 5px;
+    color: #fdfafa;
+    background-color: #c53b3b;
+    width: 100%;
+}
+
+.THIS i {
+    color: white;
+    margin-right: 1rem;
+}
+
+.THIS .fa-lg {
+    line-height: 1em;
+}

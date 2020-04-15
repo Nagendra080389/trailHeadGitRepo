@@ -1,0 +1,435 @@
+<!--
+/**
+ * Description of the CaseAttachmentPage_ACE.
+ * <p /><p />
+ * @author Nagendra Kumar Singh
+ */
+ -->
+<apex:page id="idPageCaseAttachment" docType="html-5.0" standardStylesheets="false" showChat="false"
+           lightningStylesheets="false"
+           controller="CaseAttachmentLightningController_ACE">
+    <c:FrameworkBaseComponent_CF boolBaseStyle="true"/>
+    <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/css/fileinput.min.css"/>
+    <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/explorer/theme.min.css"/>
+    <apex:stylesheet value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.10/css/bootstrap-select.min.css"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/js/fileinput.min.js"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.3/themes/explorer/theme.min.js"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.10/js/bootstrap-select.js"/>
+    <apex:includeScript value="/soap/ajax/46.0/connection.js"/>
+    <style>
+
+        .file-input.theme-explorer {
+            padding: 1rem;
+        }
+
+        .has-error .form-control {
+            border-color: #00000038 !important;
+        }
+
+        .btn.btn-primary.buttonCss {
+            width: 32%;
+            border-radius: 5px;
+        }
+
+        .removeBtnCss .glyphicon.glyphicon-trash {
+            color: #b11313d9 !important;
+        }
+
+        #file-preview-thumbnails {
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        samp {
+            display: none;
+        }
+
+        .input-group-btn {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+        }
+
+        body {
+            max-width: 50%;
+        }
+
+
+        #dropdownMenuButton {
+            background-color: white !important;
+            border: 0.5px solid #00000038 !important;
+        }
+
+
+        td {
+            padding-top: .5em;
+            padding-bottom: .5em;
+            width: 45%;
+        }
+
+        .file-upload-indicator {
+            display: none !important;
+        }
+
+        .theme-explorer .file-thumb-progress .progress {
+            margin: -9px -10px 9px !important;
+        }
+
+        .theme-explorer .file-thumb-progress .progress, .theme-explorer .file-thumb-progress .progress-bar {
+            height: 25px !important;
+            font-size: 11px !important;
+            line-height: 25px !important;
+        }
+
+        .box {
+            background-color: rgba(58, 62, 58, 0.49);
+            border: 1px;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            float: left;
+        }
+
+        .labelClass {
+            font-size: 20px;
+            padding-left: 15px;
+        }
+
+    </style>
+
+
+    <script>
+
+        var mapPreviewIdWithFile = {};
+        var currentPreviewId = [];
+        let objParentMessage;
+
+
+        $(document).ready(function () {
+            var strInputFileId = guidNumber();
+            $("#input-b6").fileinput({
+                theme: "explorer",
+                dropZoneEnabled: true,
+                msgUploadError: 'Unable to add file(s) to the case.',
+                showDrag: false,
+                showUploadedThumbs: true,
+                hideThumbnailContent: true,
+                browseClass: "btn btn-primary buttonCss",
+                uploadClass: "btn btn-primary buttonCss",
+                removeClass: "btn btn-primary buttonCss",
+                removeErrorClass: 'btn btn-primary buttonCss',
+                showCaption: false,
+                initialPreviewAsData: true,
+                uploadUrl: 'null',
+                maxFileCount: 10,
+                msgFilesTooMany: "Attach up to {m} files.",
+                validateInitialCount: true,
+                overwriteInitial: false,
+                removeLabel: 'Remove Files',
+                uploadLabel: 'Upload Files',
+                browseLabel: 'Attach Files',
+                elPreviewContainer: '#banner_default',
+                elErrorContainer: '#banner_default_error',
+                elPreviewImage: '#file-preview-thumbnails',
+                msgSizeTooLarge: "This file is larger than {size} MB, please upload to UCR",
+                layoutTemplates: {
+                    main2: '{preview}\n<div class="kv-upload-progress hide"></div>\n' +
+                        '  <div class="input-group-btn">\n' +
+                        '{browse}\n{upload}\n{remove}\n',
+                    actionDelete: '<button type="button" class="kv-file-remove {removeClass} removeBtnCss" title="{removeTitle}"{dataUrl}{dataKey}>{removeIcon}</button>\n',
+                    actions: '<div class="file-actions">\n' +
+                        '<div class="file-footer-buttons">\n' +
+                        '<div class="dropdown">\n' +
+                        '<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\n' +
+                        '<span class="caret"></span></button>\n' +
+                        '<ul class="dropdown-menu pull-right">\n' +
+                        '<li><a href="#">{upload} Upload</a></li>\n' +
+                        '<li><a href="#">{delete} Remove</a></li>\n' +
+                        '<li><a href="#">{zoom} Preview</a></li>\n' +
+                        '</ul>\n' +
+                        '</div>\n' +
+                        '</div>',
+                },
+            });
+
+            var dropZoneHtml = $('.file-drop-zone-title');
+
+
+            var typeOptionSelect = '<select class="form-control" id="idReportType">\n' +
+                '<option value="" disabled selected>Select Type</option>\n' +
+                '<option value="Appeal Document">Appeal Document</option>\n' +
+                '<option value="Police Report">Police Report</option>\n' +
+                '<option value="Travel Itinerary">Travel Itinerary</option>\n' +
+                '<option value="Accums Spreadsheet">Accums Spreadsheet</option>\n' +
+                '<option value="Clinical Document">Clinical Document</option>\n' +
+                '<option value="Other">Other</option>\n' +
+                '</select>';
+
+            $('#input-b6').on('fileerror', function (event, data, msg) {
+                console.log(data.id);
+                console.log(data.index);
+                console.log(data.file);
+                console.log(data.reader);
+                console.log(data.files);
+                // get message
+                alert(msg);
+            });
+
+
+            $('#input-b6').on('filebatchselected', function (event, files) {
+                var dropTableZone = $('#file-preview-thumbnails');
+                dropTableZone.removeClass('panel').addClass('panel');
+                if (!dropTableZone.find('th').length) {
+                    var dataToBePushed = [];
+                    dataToBePushed.push(["NAME", "TYPE"]);
+                    //Create a HTML Table element.
+                    var table = $("<table />");
+                    table[0].border = "1";
+
+                    //Get the count of columns.
+                    var columnCount = dataToBePushed[0].length;
+                    //Add the header row.
+                    var row = $(table[0].insertRow(-1));
+                    for (var i = 0; i < columnCount; i++) {
+                        var headerCell;
+                        if (dataToBePushed[0][i] === 'NAME') {
+                            headerCell = $("<th scope=\"col\" colspan=\"1\" style='width: 40%'/>");
+                        } else {
+                            headerCell = $("<th scope=\"col\" colspan=\"2\" style='width: 60%; text-align: center'/>");
+                        }
+                        headerCell.html(dataToBePushed[0][i]);
+                        row.append(headerCell);
+                    }
+
+                    row.insertBefore('div > tr:first');
+                }
+
+                dropTableZone.find('tr').filter(":not(:hidden)").each(function () {
+                    if ($(this).find('td.file-actions-cell').prev().find('select').length === 0) {
+                        $('<td>' + typeOptionSelect + '</td>').insertBefore($(this).find('td.file-actions-cell'));
+                    }
+                });
+                $('.file-drop-zone').empty().append(dropZoneHtml);
+                dropTableZone.insertBefore($('.input-group-btn'));
+                let filesCount = $('#input-b6').fileinput('getFilesCount');
+                $('#pendingMessagesAttachmentsLabel').empty().append('Pending Attachments' + ' (' + filesCount + ')');
+
+            });
+
+            /**
+             * Executed when upload has error.
+             */
+            $('#input-b6').on('fileuploaderror', function (event, data, msg) {
+                $('.file-drop-zone').empty().append(dropZoneHtml);
+            });
+
+
+            $('#input-b6').on('filesuccessremove', function (event, id) {
+                if (some_processing_function(id)) {
+                    console.log('Uploaded thumbnail successfully removed');
+                } else {
+                    return false; // abort the thumbnail removal
+                }
+            });
+
+            // Handler to execute custom logic to fill array with files to be uploaded.
+            $('#input-b6').on('fileloaded', function (event, file, previewId, index, reader) {
+                spinner(true);
+                var reader = new FileReader();
+                var file = file;
+                reader.file = file;
+                reader.onload = function (event) {
+                    var filename = file.name;
+                    try {
+                        filesBase64[strInputFileId + '&&&' + filename + '&&&' + file.size] = file;
+                        mapPreviewIdWithFile[previewId] = event.target.result;
+                        let zoomButton = $('#' + previewId).closest('tr').find('td.file-actions-cell').find('.file-actions').find('button.kv-file-zoom');
+                        var onClickEvent = 'openNewWindow("' + previewId + '")';
+                        zoomButton.attr('onClick', onClickEvent);
+                    } catch (error) {
+                        console.log(error);
+                    }
+                };
+                reader.readAsDataURL(file);
+                spinner(false);
+
+            });
+
+            // Create the XHR object.
+            function createCORSRequest(method, url) {
+                var xhr = new XMLHttpRequest();
+                if ("withCredentials" in xhr) {
+                    // XHR for Chrome/Firefox/Opera/Safari.
+                    xhr.open(method, url, true);
+                } else if (typeof XDomainRequest != "undefined") {
+                    // XDomainRequest for IE.
+                    xhr = new XDomainRequest();
+                    xhr.open(method, url);
+                } else {
+                    // CORS not supported.
+                    xhr = null;
+                }
+                return xhr;
+            }
+
+            // Handler to execute custom logic to upload attachments via AJAX toolkit.
+            $('#input-b6').on('filelock', function (event, filestack, extraData) {
+                var strFiles = "";
+                Object.keys(filesBase64).forEach(function (key) {
+
+                    var data = new FormData();
+                    data.append('filename', filesBase64[key]);
+
+                    var xhr = createCORSRequest('POST', 'https://localrestapi.herokuapp.com/consumeFiles');
+                    xhr.onload = function () {
+                        // do something to response
+                        console.log(this.responseText);
+                    };
+
+                    xhr.onerror = function () {
+                        alert('Woops, there was an error making the request.');
+                    };
+                    xhr.send(data);
+                });
+            });
+
+
+            // Handler to execute custom logic when uploading process has finish.
+            $('#input-b6').on('fileunlock', function (event, filestack, extraData) {
+                console.log('fileunlock');
+                for (const currentPreviewIdElement of currentPreviewId) {
+                    $('#' + currentPreviewIdElement).filter(":not(:hidden)").each(function () {
+                        var $progressBar = $(this).find('td.file-details-cell').find('.file-thumb-progress.kv-hidden');
+                        if ($progressBar.length) {
+                            if ($(this).closest('tr').next('tr').hasClass('progress-bar-custom')) {
+                                $(this).closest('tr').next('tr').remove();
+                            }
+                            $('<tr class="progress-bar-custom"><td colspan="3">' + $progressBar[0].outerHTML + '</td></tr>').insertAfter($(this).closest('tr'));
+                            $progressBar.hide();
+                        }
+                    });
+                }
+                uploadFilesToUCR();
+                currentPreviewId = [];
+            });
+
+            $('#input-b6').on('filepreremove', function (event, id, index) {
+                if ($('#' + id).closest('tr').next('tr').hasClass('progress-bar-custom')) {
+                    $('#' + id).closest('tr').next('tr').remove();
+                }
+            });
+
+            //Handler to execute custom logic to delete from list of attachments.
+            $('#input-b6').on('filecleared', function (event) {
+                var dropTableZone = $('#file-preview-thumbnails');
+                if (dropTableZone.hasClass('panel')) {
+                    dropTableZone.removeClass('panel');
+                }
+                let filesCount = $('#input-b6').fileinput('getFilesCount');
+                $('#pendingMessagesAttachmentsLabel').empty().append('Pending Attachments' + ' (' + filesCount + ')');
+            });
+
+
+            $('#input-b6').on('filezoomshow', function (event, params) {
+                params.sourceEvent.preventDefault();
+
+            });
+
+            $('#input-b6').on('fileuploaded', function (event, previewId, index, fileId) {
+                console.log('File uploaded', previewId, index, fileId);
+            });
+
+            $('#input-b6').on('filepreupload', function (event, data, previewId, index) {
+                var form = data.form, files = data.files, extra = data.extra,
+                    response = data.response, reader = data.reader;
+                currentPreviewId.push(previewId);
+                console.log('File pre upload triggered');
+            });
+
+            $('#input-b6').on('fileremoved', function () {
+                setTimeout(function () {
+                    let filesCount = $('#input-b6').fileinput('getFilesCount');
+                    $('#pendingMessagesAttachmentsLabel').empty().append('Pending Attachments' + ' (' + filesCount + ')');
+                }, 900);
+            });
+
+            $('#input-b6').on('fileuploaderror', function (event, data, msg) {
+                console.log('File uploaded', data.previewId, data.index, data.fileId, msg);
+            });
+
+            $('#pendingMessagesAttachmentsLabel').empty().append('Pending Attachments' + ' (' + 0 + ')');
+            $('#uploadedMessagesAttachmentsLabel').empty().append('Uploaded Attachments' + ' (' + 0 + ')');
+
+            //Now, we set a listener in case the size of the window changes, so we can adjust the iframe in the Lightning Component.
+            const objResizeObserver = new ResizeObserver(entries => {
+                objParentMessage = {
+                    strDestinationId: 'CaseAttachmentHeightListener',
+                    intNewWindowSize: $(".container-fluid-casesummary").height()
+                };
+                parent.postMessage(objParentMessage, '*');
+            });
+            objResizeObserver.observe(document.scrollingElement);
+            $("body").css("overflow-y", "hidden");
+        });
+
+        function openNewWindow(strPreviewId) {
+            let newWindowViewer = window.open("");
+            var index = mapPreviewIdWithFile[strPreviewId].indexOf('base64,');
+            var attachBody = mapPreviewIdWithFile[strPreviewId].substring(index + 7);
+            var attachmentMimeType = mapPreviewIdWithFile[strPreviewId].substring(0, index + 7);
+            newWindowViewer.document.write("<iframe width='100%' height='100%' src='" + attachmentMimeType + " " + encodeURI(attachBody) + "'></iframe>");
+
+        }
+
+        function uploadAttachment(filecontent, filename, filetype, parentId) {
+            var attachment = new sforce.SObject('Attachment');
+            attachment.Name = filename;
+            attachment.IsPrivate = false;
+            attachment.ContentType = filetype;
+            attachment.Body = filecontent;
+            attachment.Description = filename;
+            attachment.ParentId = parentId;
+            sforce.connection.create([attachment]);
+        }
+
+
+    </script>
+
+    <apex:form>
+        <apex:actionFunction action="{!uploadFilesToUCRViaCallout}" name="uploadFilesToUCR" rerender="uploadedMessage">
+        </apex:actionFunction>
+
+    </apex:form>
+
+    <div class="col-md-6 container-fluid-casesummary">
+        <div class="row">
+            <div class="col-md-12 panel panel-default">
+                <div class="box"></div>
+                <label class="labelClass" id="pendingMessagesAttachmentsLabel">Pending Attachments</label>
+                <div class="file-loading">
+                    <input id="input-b6" name="input-b6[]" type="file" multiple="multiple"/>
+                </div>
+                <div id="banner_default"/>
+                <div id="file-preview-thumbnails" class="panel-default"/>
+                <div id="banner_default_error"/>
+                <div id="uploadedMessagesAttachments">
+                    <apex:outputPanel id="uploadedMessage">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="box"></div>
+                                <label class="labelClass" id="uploadedMessagesAttachmentsLabel">Uploaded Attachments</label>
+                                <div class="panel-body">
+                                    <apex:dataTable value="{!lstCaseAttachmentsRecords}" var="objRecord" id="theTable"
+                                                    styleClass="display dataTable-plain">
+                                        <apex:column value="{!objRecord.strName}" headerValue=""/>
+                                        <apex:column value="{!objRecord.strType}" headerValue=""/>
+                                    </apex:dataTable>
+                                </div>
+                            </div>
+                        </div>
+                    </apex:outputPanel>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:page>

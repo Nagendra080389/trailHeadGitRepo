@@ -1,0 +1,7 @@
+<!--
+ - Created by nagesingh on 11/23/2019.
+ -->
+
+<apex:component access="global">
+    <apex:includeScript value="{!URLFOR($Resource.FrameworkBase_CF, 'js/jquery.csv.min-0.83.js')}"/>
+</apex:component>

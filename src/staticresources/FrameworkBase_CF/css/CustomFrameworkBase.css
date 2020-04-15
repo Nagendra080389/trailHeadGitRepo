@@ -1,0 +1,146 @@
+﻿/**
+ * Framework styling - Non-conflict Cassic or Lightning.
+ * <p /><p />
+ * @author Alejandro Cajica
+ */
+
+/* Styling for spinners*/
+.spinner {
+    width: 56px;
+    height: 56px;
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.fullBackdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+    opacity: 0.5;
+}
+
+/*Style for custom spinner image*/
+.spinnerCard {
+    width: 56px;
+    height: 56px;
+    z-index: 9999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+/*Style for custom spinner backdrop*/
+.spinnerBackdrop {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 9998;
+    background-color: #000;
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+    opacity: 0.5;
+}
+
+/*Style to initialize position of custom spinner*/
+.spinnerPosition {
+    position: relative;
+}
+
+/* Toast - The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    color: #FFF; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.snackbar-default {
+    background-color: #E0E5EE;
+    color: #000;
+}
+
+/*Info blue type styling*/
+.snackbar-info {
+    background-color: #54698d;
+}
+
+/*Primary bright blue type styling*/
+.snackbar-primary {
+    background-color: #005fb2;
+}
+
+/*Success green type styling*/
+.snackbar-success {
+    background-color: #4bca81;
+}
+
+/*Warning yellow type styling*/
+.snackbar-warning {
+    background-color: #ffb75d;
+}
+
+/*Danger red type styling*/
+.snackbar-danger {
+    background-color: #c23934;
+}
+
+/*Snackbar predefined poistions*/
+.snackbar-showTop {
+    left: 50%;
+    top: 30px;
+}
+
+.snackbar-showBottom {
+    left: 50%;
+    bottom: 30px;
+}
+
+.snackbar-showLeft {
+    left: 300px;
+    bottom: 50%;
+}
+
+.snackbar-showRight {
+    right: 200px;
+    bottom: 50%;
+}
+
+.snackbar-showCenter {
+    right: 50%;
+    bottom: 50%;
+}
+
+.snackbar-showCustom {
+    z-index: 1;
+}

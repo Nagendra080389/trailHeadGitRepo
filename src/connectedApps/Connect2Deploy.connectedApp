@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>nagendra080389@gmail.com</contactEmail>
+    <contactPhone>9731781552</contactPhone>
+    <label>Connect2Deploy</label>
+    <oauthConfig>
+        <callbackUrl>https://connect2deploy-env.2hi822xtmp.ap-south-1.elasticbeanstalk.com/sfdcAuth</callbackUrl>
+        <consumerKey>3MVG9d8..z.hDcPLDlm9QqJ3hRfJvUVqyioZ4eu6oqjSeOLmdB1buGiaGEqKJbQPRVvuJG5PpS2kfY7AO3.hR</consumerKey>
+        <isAdminApproved>false</isAdminApproved>
+        <scopes>Basic</scopes>
+        <scopes>Api</scopes>
+        <scopes>Web</scopes>
+        <scopes>Full</scopes>
+        <scopes>Chatter</scopes>
+        <scopes>CustomApplications</scopes>
+        <scopes>RefreshToken</scopes>
+        <scopes>OpenID</scopes>
+        <scopes>CustomPermissions</scopes>
+        <scopes>Wave</scopes>
+        <scopes>Eclair</scopes>
+    </oauthConfig>
+</ConnectedApp>

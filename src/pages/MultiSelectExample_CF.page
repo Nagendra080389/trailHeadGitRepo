@@ -1,0 +1,52 @@
+<!--
+/**
+ * Visualforce Page for Framework Components.
+ * <p /><p />
+ * @author Alejandro Cajica
+ */
+-->
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" showChat="false" standardController="Case" extensions="ExamplesController_CF" docType="html-5.0" lightningStylesheets="false">
+    <c:FrameworkBaseComponent_CF boolBaseStyle="true" boolValidations="true" boolCalendars="true" boolDataTables="true" boolCharts="true" boolInputFiles="true" boolMultiSelects="true"
+                                 boolCustomStyle="false" boolWizards="true" boolLightningAssets="true"/>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="picklist">Multi-select Picklist With Data - Default</label>
+                    <br/>
+                    <select class="form-control defaultMultiselectPicklistWithData" id="multiselectpicklistWithData" data-sObject="{!Case['Type']}">
+                    </select>
+                    <button type="button" class="btn btn-default" onclick="alert($('#multiselectpicklistWithData').val());">Get values.</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="picklist">Multi-select Picklist With Data - Select All</label>
+                    <br/>
+                    <select class="form-control selectAllMultiselectPicklistWithData" id="multiselectpicklistAllWithData" data-sObject="{!Case['Type']}">
+                    </select>
+                    <button type="button" class="btn btn-default" onclick="alert($('#multiselectpicklistAllWithData').val());">Get values.</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="picklist">Multi-select Picklist With Data - Filtering</label>
+                    <br/>
+                    <select class="form-control filterMultiselectPicklistWithData" id="multiselectpicklistFilterWithData" data-sObject="{!Case['Type']}">
+                    </select>
+                    <button type="button" class="btn btn-default" onclick="alert($('#multiselectpicklistFilterWithData').val());">Get values.</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="picklist">Multi-select Picklist With Data - Select All and Filtering</label>
+                    <br/>
+                    <select class="form-control selectAllAndFilterMultiselectPicklistWithData" id="multiselectpicklistAllFilterWithData" data-sObject="{!Case['Type']}">
+                    </select>
+                    <button type="button" class="btn btn-default" onclick="alert($('#multiselectpicklistAllFilterWithData').val());">Get values.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</apex:page>

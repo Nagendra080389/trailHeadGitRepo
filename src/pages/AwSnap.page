@@ -1,0 +1,15 @@
+<apex:page controller="AwSnap">
+    <apex:form>
+        <apex:actionFunction name="fet" action="{!fetchCases}" oncomplete="console.log(1);" rerender="panel">
+            <apex:param name="testvalue" assignTo="{!strTest}" value=""/>
+        </apex:actionFunction>
+        <apex:outputPanel id="panel">
+            <div id="container">{!lstCases}</div>
+        </apex:outputPanel>
+    </apex:form>
+
+    <script>
+
+
+    </script>
+</apex:page>

@@ -1,0 +1,8 @@
+<!--
+ - Created by nagesingh on 3/7/2020.
+ -->
+
+<aura:component description="AccountAuraOnly" controller="ContinuationCallAuraLWC" implements="force:appHostable,flexipage:availableForAllPageTypes">
+    <aura:attribute name="cardName" type="String"/>
+    <c:accountPage_Aura cardName="{!v.cardName}"/>
+</aura:component>
