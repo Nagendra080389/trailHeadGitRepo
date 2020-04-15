@@ -1,4 +1,4 @@
-// This is a commit commit from UCS
+// Class
 @RestResource(UrlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
 
