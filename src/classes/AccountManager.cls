@@ -1,5 +1,5 @@
 /**
- * @description AccountManager new description 1
+ * @description AccountManager new description 12
  */
 @RestResource(UrlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
