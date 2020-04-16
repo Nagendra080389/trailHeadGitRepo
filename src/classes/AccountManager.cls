@@ -1,4 +1,4 @@
-/*
+/**
  * @description AccountManager new description 12
  */
 @RestResource(urlMapping='/Accounts/*/contacts')
