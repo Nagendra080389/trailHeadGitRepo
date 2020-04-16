@@ -26,5 +26,6 @@ global with sharing class AccountManager {
     */
     public static void testThisMethod() {
         System.debug(LoggingLevel.DEBUG, '');
+        System.debug(LoggingLevel.DEBUG, '');
     }
 }
