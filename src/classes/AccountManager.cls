@@ -1,7 +1,13 @@
-// This is a commit commit from UCS
+/**
+ * @description AccountManager new description 12
+ */
 @RestResource(urlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
 
+    /**
+    * @description Method to fetch account
+    * @return Account
+    */
     @HttpGet
     global static Account getAccount() {
         Vehicle__c vehicle = new Vehicle__c();
@@ -15,7 +21,11 @@ global with sharing class AccountManager {
         return acc;
     }
 
+    /**
+    * @description Method to test commit
+    */
     public static void testThisMethod() {
+        System.debug(LoggingLevel.DEBUG, '');
         System.debug(LoggingLevel.DEBUG, '');
     }
 }
