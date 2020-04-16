@@ -1,7 +1,7 @@
-/**
+/*
  * @description AccountManager new description 12
  */
-@RestResource(UrlMapping='/Accounts/*/contacts')
+@RestResource(urlMapping='/Accounts/*/contacts')
 global with sharing class AccountManager {
 
     /**
@@ -24,7 +24,8 @@ global with sharing class AccountManager {
     /**
     * @description Method to test commit
     */
-    global static void testMethod1(){
+    public static void testThisMethod() {
+        System.debug(LoggingLevel.DEBUG, '');
         System.debug(LoggingLevel.DEBUG, '');
     }
 }
