@@ -25,6 +25,6 @@ global with sharing class AccountManager {
     * @description Method to test commit
     */
     global static void testMethod1(){
-        System.debug('');
+        System.debug(LoggingLevel.DEBUG, '');
     }
 }
