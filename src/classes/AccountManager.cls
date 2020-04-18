@@ -31,7 +31,7 @@ global with sharing class AccountManager {
     }
 
     /**
-    * @description Method to test commit
+    * @description Method to test commit1
     */
     public static void testThisMethod1() {
         System.debug(LoggingLevel.DEBUG, '');
