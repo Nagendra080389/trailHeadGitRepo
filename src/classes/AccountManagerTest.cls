@@ -15,8 +15,25 @@ private class AccountManagerTest {
         // Verify results
         System.assert(acc != null);
     }
-
+    /**
+    * getTestAccountId added here
+    */
     private static Id getTestAccountId() {
+        Account acc = new Account(Name = 'TestAcc2');
+        Insert acc;
+
+        AccountManager.testThisMethod();
+
+        Contact con = new Contact(LastName = 'TestCont2', AccountId = acc.Id);
+        Insert con;
+
+        return acc.Id;
+    }
+
+    /**
+    * getTestAccountId2 added here
+    */
+    private static Id getTestAccountId2() {
         Account acc = new Account(Name = 'TestAcc2');
         Insert acc;
 
