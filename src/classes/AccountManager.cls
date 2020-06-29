@@ -55,4 +55,11 @@ global with sharing class AccountManager {
     public static void testThisMethod4() {
         System.debug(LoggingLevel.DEBUG, '');
     }
+
+    /**
+    * @description Method to test commit6
+    */
+    public static void testThisMethod6() {
+        System.debug(LoggingLevel.DEBUG, '');
+    }
 }
