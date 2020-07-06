@@ -69,4 +69,8 @@ global with sharing class AccountManager {
     public static void testThisMethod7() {
         System.debug(LoggingLevel.DEBUG, '');
     }
+
+    public static void testThisMethod8() {
+        System.debug(LoggingLevel.DEBUG, '');
+    }
 }
