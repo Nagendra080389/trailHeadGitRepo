@@ -70,6 +70,9 @@ global with sharing class AccountManager {
         System.debug(LoggingLevel.DEBUG, '');
     }
 
+    /**
+    * @description Method to test commit8
+    */
     public static void testThisMethod8() {
         System.debug(LoggingLevel.DEBUG, '');
     }
